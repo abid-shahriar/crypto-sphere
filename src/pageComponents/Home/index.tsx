@@ -15,9 +15,19 @@ export default function HomePage({ firstTenCoinData }: any) {
   }, [dispatch]);
 
   useEffect(() => {
-    if (coins && coins.coinsData) {
-      setCoinData(coins.coinsData);
+    if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.stats && coins.coinsData.data.coins) {
+      setTimeout(() => {
+        setCoinData({
+          ...coinsData,
+          data: {
+            ...coinsData.data,
+            stats: coins.coinsData.data.stats,
+            coins: coins.coinsData.data.coins
+          }
+        });
+      }, 2000);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins]);
 
   return (

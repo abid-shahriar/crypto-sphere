@@ -19,14 +19,19 @@ export default function CurrenciesPage({ coinsData }: any) {
   }, [dispatch]);
 
   useEffect(() => {
-    if (coins && coins.coinsData) {
-      setAllCoinsData(coins.coinsData);
+    if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.coins) {
+      setTimeout(() => {
+        setAllCoinsData({
+          ...allCoinsData,
+          data: {
+            ...allCoinsData.data,
+            coins: coins.coinsData.data.coins
+          }
+        });
+      }, 2000);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins]);
-
-  if (!allCoinsData) {
-    return <Typography>Loading...</Typography>;
-  }
 
   return (
     <div>
