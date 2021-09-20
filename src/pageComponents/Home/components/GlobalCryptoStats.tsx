@@ -13,36 +13,34 @@ export default function GlobalCryptoStats({ stats }: any) {
         <StatsCard>
           <Typography fontWeight='500'>Total Cryptocurrencies</Typography>
           <Typography fontWeight='600' fontSize='2.8rem' margin='1rem 0 0 0'>
-            {millify(stats.total)}
+            {millify(stats?.total)}
           </Typography>
         </StatsCard>
         <StatsCard>
           <Typography fontWeight='500'>Total 24H Volume</Typography>
           <Typography fontWeight='600' fontSize='2.8rem' margin='1rem 0 0 0'>
-            {millify(stats.total24hVolume)}
+            {millify(stats?.total24hVolume)}
           </Typography>
         </StatsCard>
         <StatsCard>
           <Typography fontWeight='500'>Total Exchanges</Typography>
           <Typography fontWeight='600' fontSize='2.8rem' margin='1rem 0 0 0'>
-            {millify(stats.totalExchanges)}
+            {millify(stats?.totalExchanges)}
           </Typography>
         </StatsCard>
         <StatsCard>
           <Typography fontWeight='500'>Total Market Cap</Typography>
           <Typography fontWeight='600' fontSize='2.8rem' margin='1rem 0 0 0'>
-            {millify(stats.totalMarketCap)}
+            {millify(stats?.totalMarketCap)}
           </Typography>
         </StatsCard>
         <StatsCard>
           <Typography fontWeight='500'>Total Markets</Typography>
           <Typography fontWeight='600' fontSize='2.8rem' margin='1rem 0 0 0'>
-            {millify(stats.totalMarkets)}
+            {millify(stats?.totalMarkets)}
           </Typography>
         </StatsCard>
       </StatsCardsWrapper>
-
-      <Typography></Typography>
     </>
   );
 }

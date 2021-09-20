@@ -26,6 +26,7 @@ const Main = styled.main`
   flex-direction: column;
   flex-grow: 1;
   background-color: whitesmoke;
+  margin-left: var(--sidebar-width);
 
   & > *:first-child {
     flex-grow: 1;

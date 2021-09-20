@@ -49,6 +49,11 @@ const Container = styled.div`
   flex-direction: column;
   background-color: var(--bg-primary);
   padding: 2rem;
+  width: var(--sidebar-width);
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
 `;
 const AppName = styled.div`
   display: flex;
@@ -60,7 +65,8 @@ const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 6rem;
 `;
 const MenuItem = styled('a')`
   display: flex;
