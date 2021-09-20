@@ -1,5 +1,10 @@
 import React from 'react';
+import { Typography } from '../../components';
 
 export default function ExchangesPage() {
-  return <div>Exchanges Page</div>;
+  return (
+    <div>
+      <Typography textAlign='center'>Coming Soon</Typography>
+    </div>
+  );
 }

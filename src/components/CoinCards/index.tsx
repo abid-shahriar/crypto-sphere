@@ -58,6 +58,10 @@ const CoinCard = styled.div`
   & > * {
     pointer-events: none;
   }
+
+  @media (max-width: 678px) {
+    width: 100%;
+  }
 `;
 const CoinsCardContainer = styled.div`
   display: flex;

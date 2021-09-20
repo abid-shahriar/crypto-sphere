@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import { Typography } from '../../../components';
 
 export default function GlobalCryptoStats({ stats }: any) {
+  if (!stats) {
+    return <Typography>Loading...</Typography>;
+  }
+
   return (
     <>
-      <Typography variant='title' margin='0 0 1rem 0'>
+      <Typography variant='title' margin='0 0 2rem 0' fontSize='2.4rem' fontWeight='600'>
         Global Crypto Stats:
       </Typography>
 
@@ -62,6 +66,10 @@ const StatsCard = styled.div`
   flex-direction: column;
   border-radius: 5px;
   margin: 2rem;
+
+  @media (max-width: 678px) {
+    width: 100%;
+  }
 
   @supports (gap: 2rem) {
     margin: 0;

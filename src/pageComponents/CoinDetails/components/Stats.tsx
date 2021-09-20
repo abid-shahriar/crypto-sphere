@@ -51,10 +51,21 @@ const StatsCard = styled.div<any>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
   background-color: ${({ color }) => (color ? `rgba(${hexToRgb(color)[0]}, ${hexToRgb(color)[1]}, ${hexToRgb(color)[2]}, .4 )` : 'white')};
+
+  @media (max-width: 678px) {
+    width: 100%;
+  }
+
+  @supports (gap: 1rem) {
+    margin: 0;
+  }
 `;
 const StatsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
+  gap: 1rem;
 `;

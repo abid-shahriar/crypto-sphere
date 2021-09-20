@@ -7,10 +7,6 @@ export const fetchCoins = (limit: number) => async (dispatch: any) => {
   try {
     const res = await api.fetchCoinsApi(limit);
 
-    // const stringifyData = JSON.stringify(res);
-
-    // console.log(stringifyData);
-
     dispatch({ type: t.FETCH_COINS_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: t.FETCH_COINS_FAILED, payload: error });

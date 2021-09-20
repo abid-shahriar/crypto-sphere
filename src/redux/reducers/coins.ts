@@ -22,7 +22,7 @@ function coinsReducers(state = initialState, { type, payload }: coinsReducersPro
       return {
         ...state,
         isLoading: false,
-        coinsData: payload.data
+        coinsData: payload
       };
     case t.FETCH_COINS_FAILED:
       return {

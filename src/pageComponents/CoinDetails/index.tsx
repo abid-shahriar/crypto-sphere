@@ -4,16 +4,24 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../components';
 
-import { fetchSingleCoinApi } from '../../redux/apis/coins';
+import { fetchCoinHistoryApi, fetchSingleCoinApi } from '../../redux/apis/coins';
+import HistoryChart from './components/HistoryChart';
+import RelatedLinks from './components/RelatedLinks';
 import Stats from './components/Stats';
 
 export default function CoinDetailsPage({ coinId }: any) {
   const [coinData, setCoinData] = useState<any>(undefined);
+  const [coinHistory, setCoinHistory] = useState<any>(undefined);
 
   useEffect(() => {
     if (coinId && !coinData) {
       fetchSingleCoinApi(+coinId).then((res) => {
         setCoinData(res.data.data.coin);
+      });
+    }
+    if (coinId && !coinHistory) {
+      fetchCoinHistoryApi(+coinId).then((res) => {
+        setCoinHistory(res.data.data.history);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,8 +43,11 @@ export default function CoinDetailsPage({ coinId }: any) {
       </Typography>
 
       <Stats coinData={coinData} />
+      <HistoryChart coinHistory={coinHistory} />
 
       <Description>{HTMLReactParser(coinData?.description)}</Description>
+
+      <RelatedLinks links={coinData.links} />
     </Container>
   );
 }
