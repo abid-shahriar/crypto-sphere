@@ -1,6 +1,5 @@
 import HTMLReactParser from 'html-react-parser';
-import millify from 'millify';
-import { useRouter } from 'next/router';
+
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../components';
@@ -8,11 +7,8 @@ import { Typography } from '../../components';
 import { fetchSingleCoinApi } from '../../redux/apis/coins';
 import Stats from './components/Stats';
 
-export default function CoinDetailsPage() {
+export default function CoinDetailsPage({ coinId }: any) {
   const [coinData, setCoinData] = useState<any>(undefined);
-  const router = useRouter();
-
-  const coinId = router.query.id;
 
   useEffect(() => {
     if (coinId && !coinData) {
@@ -26,7 +22,7 @@ export default function CoinDetailsPage() {
   console.log(coinData);
 
   if (!coinData) {
-    return null;
+    return <Typography>loading...</Typography>;
   }
 
   return (
