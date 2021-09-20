@@ -11,21 +11,25 @@ export default function HomePage({ firstTenCoinData }: any) {
   const { coins } = useSelector((state: any) => state);
 
   useEffect(() => {
-    dispatch(fetchCoins(10));
-  }, [dispatch]);
+    if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.stats && coins.coinsData.data.coins.length >= 10) {
+      return;
+    } else {
+      dispatch(fetchCoins(10));
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.stats && coins.coinsData.data.coins) {
-      setTimeout(() => {
-        setCoinData({
-          ...coinsData,
-          data: {
-            ...coinsData.data,
-            stats: coins.coinsData.data.stats,
-            coins: coins.coinsData.data.coins
-          }
-        });
-      }, 2000);
+      setCoinData({
+        ...coinsData,
+        data: {
+          ...coinsData.data,
+          stats: coins.coinsData.data.stats,
+          coins: coins.coinsData.data.coins.slice(0, 10)
+        }
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins]);

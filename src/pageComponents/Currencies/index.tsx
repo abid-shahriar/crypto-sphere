@@ -15,20 +15,23 @@ export default function CurrenciesPage({ coinsData }: any) {
   const { coins } = useSelector((state: any) => state);
 
   useEffect(() => {
-    dispatch(fetchCoins(100));
-  }, [dispatch]);
+    if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.stats && coins.coinsData.data.coins.length >= 100) {
+      return;
+    } else {
+      dispatch(fetchCoins(100));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (coins && coins.coinsData && coins.coinsData.data && coins.coinsData.data.coins) {
-      setTimeout(() => {
-        setAllCoinsData({
-          ...allCoinsData,
-          data: {
-            ...allCoinsData.data,
-            coins: coins.coinsData.data.coins
-          }
-        });
-      }, 2000);
+      setAllCoinsData({
+        ...allCoinsData,
+        data: {
+          ...allCoinsData.data,
+          coins: coins.coinsData.data.coins
+        }
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins]);
