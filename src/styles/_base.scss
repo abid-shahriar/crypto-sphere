@@ -1,0 +1,19 @@
+:root {
+  // colors
+  --clr-primary: red;
+  --clr-white: #ffffff;
+  --clr-blue: #0096ff;
+  --bg-primary: #2e3034;
+  --bg-secondary: #3a3b3f;
+
+  // fixed height/weight
+  --footer-height: 50px;
+
+  // fonts
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Vollkorn', serif;
+}
+
+html {
+  font-size: 62.5%;
+}

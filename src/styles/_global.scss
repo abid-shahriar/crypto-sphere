@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-white);
+
+  & > * {
+    pointer-events: none;
+  }
+}
+
+#__next {
+  min-height: 100vh;
+  display: flex;
+}
