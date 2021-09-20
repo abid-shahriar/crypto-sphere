@@ -27,8 +27,6 @@ export default function CoinDetailsPage({ coinId }: any) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coinId]);
 
-  console.log(coinData);
-
   if (!coinData) {
     return <Typography>loading...</Typography>;
   }

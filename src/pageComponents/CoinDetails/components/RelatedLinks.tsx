@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Typography } from '../../../components';
 
 export default function RelatedLinks({ links }: any) {
-  console.log(links);
   return (
     <Container>
       <InnerContainer>
