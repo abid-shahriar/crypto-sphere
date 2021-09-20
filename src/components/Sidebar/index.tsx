@@ -7,6 +7,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { GiTwoCoins } from 'react-icons/gi';
 import { IoNewspaperOutline } from 'react-icons/io5';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import { AiOutlineCaretRight, AiOutlineCaretLeft } from 'react-icons/ai';
 
 import { Typography } from '..';
 import { useEffect, useRef, useState } from 'react';
@@ -81,7 +82,7 @@ export default function Sidebar() {
       </Menu>
 
       <ToggleButton onClick={handleToggle}>
-        {sidebarHidden ? <FaChevronRight color='white' size='2rem' /> : <FaChevronLeft color='white' size='2rem' />}
+        {sidebarHidden ? <AiOutlineCaretRight color='white' size='3rem' /> : <AiOutlineCaretLeft color='white' size='3rem' />}
       </ToggleButton>
     </Container>
   );
@@ -138,7 +139,7 @@ const ToggleButton = styled.div`
   position: absolute;
   right: 0px;
   margin-top: -2rem;
-  background-color: black;
+  background-color: var(--bg-secondary);
   height: 100%;
   width: 15px;
   display: flex;

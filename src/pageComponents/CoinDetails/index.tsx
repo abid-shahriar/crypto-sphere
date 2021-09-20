@@ -1,5 +1,4 @@
 import HTMLReactParser from 'html-react-parser';
-
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../components';
@@ -28,7 +27,11 @@ export default function CoinDetailsPage({ coinId }: any) {
   }, [coinId]);
 
   if (!coinData) {
-    return <Typography>loading...</Typography>;
+    return (
+      <Typography fontWeight='500' textAlign='center'>
+        loading...
+      </Typography>
+    );
   }
 
   return (
