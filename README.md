@@ -2,7 +2,7 @@
 
 Build With NextJS with the help of Coinranking Api from RapidApi. I've used ISR(Incremental Static Regeneration) here for speed and performance.
 
-## tech user:
+## tech used:
 1. NextJS
 2. TypeScript
 3. SCSS
