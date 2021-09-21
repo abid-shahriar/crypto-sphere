@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
 
 import { RiCoinsFill, RiExchangeDollarFill } from 'react-icons/ri';
 import { AiOutlineHome } from 'react-icons/ai';
 import { GiTwoCoins } from 'react-icons/gi';
-import { IoNewspaperOutline } from 'react-icons/io5';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import { AiOutlineCaretRight, AiOutlineCaretLeft } from 'react-icons/ai';
+// import { IoNewspaperOutline } from 'react-icons/io5';
+// import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 import { Typography } from '..';
-import { useEffect, useRef, useState } from 'react';
 
 const menuItems = [
   { name: 'home', link: '/', icon: <AiOutlineHome size='2.5rem' style={{ marginTop: '-6px' }} /> },
