@@ -45,7 +45,21 @@ export default function Sidebar() {
     });
 
     setBrowserWidth(window.innerWidth);
-  }, []);
+
+    if (browserWidth && browserWidth < 1250) {
+      console.log('touch');
+      window.document.body.addEventListener('swiped-left', (e: any) => {
+        if (browserWidth < 1250) {
+          sidebarRef.current.style.transform = 'translateX(calc(-100% + 15px))';
+        }
+      });
+      window.document.body.addEventListener('swiped-right', (e: any) => {
+        if (browserWidth < 1250) {
+          sidebarRef.current.style.transform = 'translateX(0)';
+        }
+      });
+    }
+  }, [browserWidth]);
 
   function handleToggle() {
     if (sidebarHidden) {
