@@ -1,17 +1,23 @@
+import axios from 'axios';
 import CurrenciesPage from '../../pageComponents/Currencies';
-import { firstHundredCoinsData } from '../../pageComponents/Currencies/static';
-// import { fetchCoinsApi } from '../../redux/apis/coins';
 
-export default function index({ coinsData }: any) {
+export default function Home({ coinsData }: any) {
   return <CurrenciesPage coinsData={coinsData} />;
 }
 
 export async function getStaticProps() {
-  // const res: any = await fetchCoinsApi(100);
+  const res = await axios.get(`https://coinranking1.p.rapidapi.com/coins`, {
+    headers: {
+      'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+      'x-rapidapi-key': 'c30317cbdcmsh12064b4c7672dbep17c564jsn830ca0b7c38b'
+    },
+    params: {
+      limit: 100
+    }
+  });
 
   return {
-    // props: { coinsData: res.data },
-    // revalidate: 86400
-    props: { coinsData: firstHundredCoinsData }
+    props: { coinsData: res.data.data.coins },
+    revalidate: 60
   };
 }

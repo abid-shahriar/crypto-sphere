@@ -16,7 +16,7 @@ export default function CoinsCard({ coinsData, filter = '' }: any) {
           <CoinCard
             key={idx}
             onClick={() => {
-              router.push(`/coin/${coin.id}`);
+              router.push(`/coin/${coin.uuid}`);
             }}
           >
             <Header>
@@ -27,16 +27,16 @@ export default function CoinsCard({ coinsData, filter = '' }: any) {
             </Header>
             <CoinInfoCard>
               <Typography fontWeight='400' fontSize='1.6rem' textTransform='capitalize'>
-                current price: {millify(coin.price)}$
+                current price: ${millify(coin.price)}
               </Typography>
               <Typography fontWeight='400' fontSize='1.6rem' textTransform='capitalize'>
                 Market Cap: {millify(coin.marketCap)}
               </Typography>
               <Typography fontWeight='400' fontSize='1.6rem' textTransform='capitalize'>
-                number Of Exchanges: {millify(coin.numberOfExchanges)}
+                24h Volume: {millify(coin['24hVolume'])}
               </Typography>
               <Typography fontWeight='400' fontSize='1.6rem' textTransform='capitalize'>
-                number Of Markets: {millify(coin.numberOfMarkets)}
+                Change Rate: {coin.change}%
               </Typography>
             </CoinInfoCard>
           </CoinCard>

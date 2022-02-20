@@ -1,9 +1,9 @@
+import axios from 'axios';
 import HTMLReactParser from 'html-react-parser';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../components';
 
-import { fetchCoinHistoryApi, fetchSingleCoinApi } from '../../redux/apis/coins';
 import HistoryChart from './components/HistoryChart';
 import RelatedLinks from './components/RelatedLinks';
 import Stats from './components/Stats';
@@ -13,17 +13,30 @@ export default function CoinDetailsPage({ coinId }: any) {
   const [coinHistory, setCoinHistory] = useState<any>(undefined);
 
   useEffect(() => {
-    if (coinId && !coinData) {
-      fetchSingleCoinApi(+coinId).then((res) => {
+    if (!coinId) return;
+
+    axios
+      .get(`https://coinranking1.p.rapidapi.com/coin/${coinId}`, {
+        headers: {
+          'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+          'x-rapidapi-key': 'c30317cbdcmsh12064b4c7672dbep17c564jsn830ca0b7c38b'
+        }
+      })
+      .then((res) => {
         setCoinData(res.data.data.coin);
       });
-    }
-    if (coinId && !coinHistory) {
-      fetchCoinHistoryApi(+coinId).then((res) => {
+
+    axios
+      .get(`https://coinranking1.p.rapidapi.com/coin/${coinId}/history`, {
+        headers: {
+          'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+          'x-rapidapi-key': 'c30317cbdcmsh12064b4c7672dbep17c564jsn830ca0b7c38b'
+        }
+      })
+      .then((res) => {
+        console.log(res.data);
         setCoinHistory(res.data.data.history);
       });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coinId]);
 
   if (!coinData) {
